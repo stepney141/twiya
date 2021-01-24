@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "puppeteer": "^5.5.0"
+  },
+  "name": "petter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
