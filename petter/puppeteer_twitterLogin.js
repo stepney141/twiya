@@ -33,5 +33,23 @@ const password = process.env.TWITTER_PASSWORD;
 
   await page.screenshot({ path: "test.png" });
 
+  const networkLogs = [];
+  page.on("request", (request) => {
+    networkLogs.push({
+      ts: Date.now(),
+      network: "request",
+      url: request.url(),
+    });
+  });
+  page.on("response", (response) => {
+    networkLogs.push({
+      ts: Date.now(),
+      network: "response",
+      url: response.url(),
+    });
+  });
+
   await browser.close();
+
+  console.log(networkLogs);
 })();
